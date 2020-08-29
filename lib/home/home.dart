@@ -11,6 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+ /* 
   final List<String> imgList = [
     'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
     'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
@@ -19,6 +20,16 @@ class _HomeState extends State<Home> {
     'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
     'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
   ];
+*/
+
+  final List<String> imgList = [
+      'https://cumulus-fs.s3.amazonaws.com/images/credit-card-travel-no-logo.png',
+      'https://cumulus-fs.s3.amazonaws.com/images/credit-card-cloud-plus-no-logo.png',
+      'https://cumulus-fs.s3.amazonaws.com/images/credit-card-freedom-no-logo.png',
+      'https://cumulus-fs.s3.amazonaws.com/images/credit-card-student-no-logo.png',      
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +107,7 @@ class _HomeState extends State<Home> {
                                             child: Hero(
                                               tag: '$i',
                                               child: CachedNetworkImage(
-                                                fit: BoxFit.cover,
+                                                fit: BoxFit.fitWidth,
                                                 imageUrl: i,
                                                 placeholder: (context, url) =>
                                                     Center(
@@ -191,7 +202,7 @@ class _HomeState extends State<Home> {
                                                 70,
                                         width: double.infinity,
                                         child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fitWidth,
                                           imageUrl: imgList[index],
                                           placeholder: (context, url) => Center(
                                               child:
