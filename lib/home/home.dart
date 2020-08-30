@@ -30,6 +30,22 @@ class _HomeState extends State<Home> {
   ];
 
 
+  final List<String> imgList2 = [
+      'https://cumulus-fs.s3.amazonaws.com/images/banking-checking.png',
+      'https://cumulus-fs.s3.amazonaws.com/images/banking-checking.png',
+      'https://cumulus-fs.s3.amazonaws.com/images/banking-checking.png',
+      'https://cumulus-fs.s3.amazonaws.com/images/banking-checking.png',
+      'https://cumulus-fs.s3.amazonaws.com/images/banking-checking.png',
+  ];
+
+  final List<String> imgList3 = [
+      'Banking',
+      'Borrowing',
+      'Credit Cards',
+      'Investing',
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -206,7 +222,7 @@ class _HomeState extends State<Home> {
                                         width: double.infinity,
                                         child: CachedNetworkImage(
                                           fit: BoxFit.fitWidth,
-                                          imageUrl: imgList[index],
+                                          imageUrl: imgList2[index],
                                           placeholder: (context, url) => Center(
                                               child:
                                                   CircularProgressIndicator()),
@@ -216,7 +232,7 @@ class _HomeState extends State<Home> {
                                       ),
                                       ListTile(
                                           title: Text(
-                                        'Two Gold Rings',
+                                        imgList3[index],
                                         style: TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontSize: 16),
