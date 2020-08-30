@@ -40,10 +40,12 @@ class _HomeState extends State<Home> {
         top: false,
         left: false,
         right: false,
+        
         child: CustomScrollView(
             // Add the app bar and list of items as slivers in the next steps.
             slivers: <Widget>[
               SliverAppBar(
+                backgroundColor: Colors.blue,
                 // Provide a standard title.
                 // title: Text('asdas'),
                 // pinned: true,
@@ -53,13 +55,17 @@ class _HomeState extends State<Home> {
                     onPressed: () {},
                   )
                 ],
+                
                 // Allows the user to reveal the app bar if they begin scrolling
                 // back up the list of items.
                 // floating: true,
                 // Display a placeholder widget to visualize the shrinking size.
+                //flexibleSpace: HomeSlider(),
+
                 flexibleSpace: HomeSlider(),
+
                 // Make the initial height of the SliverAppBar larger than normal.
-                expandedHeight: 300,
+                expandedHeight: 230,
               ),
               SliverList(
                 // Use a delegate to build items as they're scrolled on screen.
@@ -103,7 +109,7 @@ class _HomeState extends State<Home> {
                                             CrossAxisAlignment.start,
                                         children: <Widget>[
                                           SizedBox(
-                                            height: 160,
+                                            height: 110,
                                             child: Hero(
                                               tag: '$i',
                                               child: CachedNetworkImage(
@@ -121,10 +127,10 @@ class _HomeState extends State<Home> {
                                           ),
                                           ListTile(
                                             title: Text(
-                                              'Two Gold Rings',
+                                              'Cloud Travel Card',
                                               style: TextStyle(fontSize: 14),
                                             ),
-                                            subtitle: Text('\$200',
+                                            subtitle: Text('\Find out more!',
                                                 style: TextStyle(
                                                     color: Theme.of(context)
                                                         .accentColor,
@@ -145,10 +151,7 @@ class _HomeState extends State<Home> {
                         child: Padding(
                           padding:
                               EdgeInsets.only(top: 6.0, left: 8.0, right: 8.0),
-                          child: Image(
-                            fit: BoxFit.cover,
-                            image: AssetImage('assets/images/banner-1.png'),
-                          ),
+                          child: new Image.network('https://cumulus-fs.s3.amazonaws.com/images/ads/banner-webinar-integrating-healthcare-into-retirement-plan.jpg'),
                         ),
                       ),
                       Row(
@@ -230,10 +233,7 @@ class _HomeState extends State<Home> {
                         child: Padding(
                           padding: EdgeInsets.only(
                               top: 6.0, left: 8.0, right: 8.0, bottom: 10),
-                          child: Image(
-                            fit: BoxFit.cover,
-                            image: AssetImage('assets/images/banner-2.png'),
-                          ),
+                          child: new Image.network('https://cumulus-fs.s3.amazonaws.com/images/ads/banner-credit-card-finder.jpg'),
                         ),
                       )
                     ],

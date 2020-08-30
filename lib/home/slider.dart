@@ -20,9 +20,8 @@ class _HomeSliderState extends State<HomeSlider> {
   */
 
   final List<String> imgList = [
-    'https://cumulus-fs.s3.amazonaws.com/images/ads/banner-credit-card-finder.jpg',
-    'https://cumulus-fs.s3.amazonaws.com/images/ads/banner-webinar-integrating-healthcare-into-retirement-plan.jpg',
-    'https://cumulus-fs.s3.amazonaws.com/images/ads/banner-webinar-foundations-of-investing.jpg',
+    'https://cumulus-fs.s3.amazonaws.com/images/banners/hero-personal-credit-cards-default-BG-image.jpg',
+    'https://cumulus-fs.s3.amazonaws.com/images/banners/hero-corporate-home-default-BG-image.jpg',
     ];
 
   @override
@@ -30,6 +29,7 @@ class _HomeSliderState extends State<HomeSlider> {
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
+      
       child: Stack(
         children: <Widget>[
           Center(
@@ -45,9 +45,11 @@ class _HomeSliderState extends State<HomeSlider> {
                         width: MediaQuery.of(context).size.width,
                         child: CachedNetworkImage(
                           fit: BoxFit.fitWidth,
+                          alignment: Alignment.bottomCenter,
                           imageUrl: i,
                           placeholder: (context, url) => Center(
                               child: CircularProgressIndicator()
+                              
                           ),
                           errorWidget: (context, url, error) => new Icon(Icons.error),
                         )
