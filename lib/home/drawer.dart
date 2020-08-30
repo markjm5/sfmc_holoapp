@@ -49,7 +49,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   Navigator.pushNamed(context, '/shop');
                 },
               ),
-              ListTile(
+              /*ListTile(
                 leading:
                     Icon(Icons.category, color: Theme.of(context).accentColor),
                 title: Text('Categorise'),
@@ -57,7 +57,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   Navigator.pop(context);
                   Navigator.pushNamed(context, '/categorise');
                 },
-              ),
+              ),*/
               ListTile(
                 leading:
                     Icon(Icons.favorite, color: Theme.of(context).accentColor),
