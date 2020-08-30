@@ -194,7 +194,7 @@ class _ShopState extends State<Shop> {
                                             height: (MediaQuery.of(context).size.width / 2 - 5),
                                             width: double.infinity,
                                             child: CachedNetworkImage(
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fitWidth,
                                               imageUrl: products[index]['image'],
                                               placeholder: (context, url) => Center(
                                                   child: CircularProgressIndicator()
