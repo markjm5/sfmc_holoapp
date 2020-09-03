@@ -1,4 +1,4 @@
-package com.example.flutter_complete_guide;
+package com.example.sfmc_holoapp;
 import com.evergage.android.CampaignHandler;
 import com.evergage.android.Campaign;
 

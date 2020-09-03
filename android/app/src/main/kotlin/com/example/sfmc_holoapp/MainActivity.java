@@ -17,6 +17,7 @@ import com.evergage.android.EvergageActivity;
 import com.evergage.android.ClientConfiguration;
 import com.evergage.android.Screen;
 
+
 import java.util.Map;
 
 public class MainActivity extends FlutterActivity {
@@ -71,7 +72,6 @@ public class MainActivity extends FlutterActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         GeneratedPluginRegistrant.registerWith(this);
-
 
         new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(new MethodChannel.MethodCallHandler(){
             @Override

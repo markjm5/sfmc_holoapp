@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/services.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class Settings extends StatefulWidget {
@@ -8,6 +9,8 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+
+  static const platform = const MethodChannel('demo.flutter_complete_guide/info'); 
 
   @override
   Widget build(BuildContext context) {
@@ -134,4 +137,38 @@ class _SettingsState extends State<Settings> {
         )
     );
   }
+
+  Future<String> _androidInitialize() async {
+    var sendMap = <String, dynamic> {
+      'account': 'interactionstudio',
+      'ds': 'mmukherjee_sandbox',
+    };
+
+    String value;
+    try {
+      value = await platform.invokeMethod('androidInitialize', sendMap);
+      print("initialize: " + value.toString());
+    } catch (e){
+      print(e);
+    }
+
+    return value;
+  }
+
+  Future<String> _androidLogEvent(String answerChosen) async {
+    var sendMap = <String, dynamic> {
+      'event': 'Answer Selected: ' + answerChosen,
+    };
+
+    String value;
+    try {
+      value = await platform.invokeMethod('androidLogEvent', sendMap);
+      print("log event: " + value.toString());
+
+    } catch (e){
+      print(e);
+    }
+
+    return value;
+  }    
 }
