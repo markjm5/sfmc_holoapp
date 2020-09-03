@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "62318253130",
-    "firebase_url": "https://my-flutter-project-mm.firebaseio.com",
-    "project_id": "my-flutter-project-mm",
-    "storage_bucket": "my-flutter-project-mm.appspot.com"
+    "project_number": "12302955622",
+    "firebase_url": "https://sfmc-holoapp.firebaseio.com",
+    "project_id": "sfmc-holoapp",
+    "storage_bucket": "sfmc-holoapp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:62318253130:android:0a247654732d5df8d0c2b3",
+        "mobilesdk_app_id": "1:12302955622:android:6b9e4c56034f8ad8ef69a7",
         "android_client_info": {
           "package_name": "com.example.sfmc_holoapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "62318253130-uq7b747vh27hsb5g286focp3evs633tq.apps.googleusercontent.com",
+          "client_id": "12302955622-f5jtl48vllbotnpvld2gegeklht36l40.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCc1NdBAnyQgvZNFQES967hk58GsQikboQ"
+          "current_key": "AIzaSyCf7hQVFswEkPDQhEe_9ntVxvl5zrMw4tA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "62318253130-uq7b747vh27hsb5g286focp3evs633tq.apps.googleusercontent.com",
+              "client_id": "12302955622-f5jtl48vllbotnpvld2gegeklht36l40.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
