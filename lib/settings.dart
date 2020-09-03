@@ -10,7 +10,21 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
 
-  static const platform = const MethodChannel('demo.flutter_complete_guide/info'); 
+  static const platform = const MethodChannel('demo.sfmc_holoapp/info'); 
+  String _message;
+
+  @override
+  void initState(){
+
+    _androidInitialize().then((String message){
+      setState(() {
+        _message = message;        
+      });   
+   });
+
+   super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
