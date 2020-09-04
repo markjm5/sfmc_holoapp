@@ -8,11 +8,12 @@ import 'slider.dart';
 class Home extends StatefulWidget {
 
   final Function androidInitialize;
+  final Function androidLogEvent;
 
-  Home(this.androidInitialize);
+  Home(this.androidInitialize, this.androidLogEvent);
 
   @override
-  _HomeState createState() => _HomeState(androidInitialize);
+  _HomeState createState() => _HomeState(androidInitialize, androidLogEvent);
 }
 
 class _HomeState extends State<Home> {
@@ -51,10 +52,11 @@ class _HomeState extends State<Home> {
   ];
 
   final Function _androidInitialize;
+  final Function _androidLogEvent;
   String _message; 
 
   @override
-  _HomeState(this._androidInitialize);
+  _HomeState(this._androidInitialize, this._androidLogEvent);
 
   @override
   void initState(){

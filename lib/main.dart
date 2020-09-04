@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
             fontFamily: locale.languageCode == 'ar' ? 'Dubai' : 'Lato'),
         initialRoute: '/',
         routes: <String, WidgetBuilder>{
-          '/': (BuildContext context) => Home(_androidInitialize),
+          '/': (BuildContext context) => Home(_androidInitialize, _androidLogEvent),
           '/auth': (BuildContext context) => Auth(),
           '/shop': (BuildContext context) => Shop(),
           '/categorise': (BuildContext context) => Categorise(),
@@ -82,9 +82,9 @@ class _MyAppState extends State<MyApp> {
     return value;
   }
 
-  Future<String> _androidLogEvent(String answerChosen) async {
+  Future<String> _androidLogEvent() async {
     var sendMap = <String, dynamic> {
-      'event': 'Answer Selected: ' + answerChosen,
+      'event': 'Logged App Event',
     };
 
     String value;
