@@ -10,21 +10,8 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
 
-  static const platform = const MethodChannel('demo.sfmc_holoapp/info'); 
-  String _message;
-
-  @override
-  void initState(){
-
-    _androidInitialize().then((String message){
-      setState(() {
-        _message = message;        
-      });   
-   });
-
-   super.initState();
-
-  }
+//  static const platform = const MethodChannel('demo.sfmc_holoapp/info'); 
+//  String _message;
 
   @override
   Widget build(BuildContext context) {
@@ -150,39 +137,5 @@ class _SettingsState extends State<Settings> {
               ),
         )
     );
-  }
-
-  Future<String> _androidInitialize() async {
-    var sendMap = <String, dynamic> {
-      'account': 'interactionstudio',
-      'ds': 'mmukherjee_sandbox',
-    };
-
-    String value;
-    try {
-      value = await platform.invokeMethod('androidInitialize', sendMap);
-      print("initialize: " + value.toString());
-    } catch (e){
-      print(e);
-    }
-
-    return value;
-  }
-
-  Future<String> _androidLogEvent(String answerChosen) async {
-    var sendMap = <String, dynamic> {
-      'event': 'Answer Selected: ' + answerChosen,
-    };
-
-    String value;
-    try {
-      value = await platform.invokeMethod('androidLogEvent', sendMap);
-      print("log event: " + value.toString());
-
-    } catch (e){
-      print(e);
-    }
-
-    return value;
-  }    
+  }   
 }

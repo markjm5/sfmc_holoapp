@@ -6,8 +6,13 @@ import 'drawer.dart';
 import 'slider.dart';
 
 class Home extends StatefulWidget {
+
+  final Function androidInitialize;
+
+  Home(this.androidInitialize);
+
   @override
-  _HomeState createState() => _HomeState();
+  _HomeState createState() => _HomeState(androidInitialize);
 }
 
 class _HomeState extends State<Home> {
@@ -45,6 +50,24 @@ class _HomeState extends State<Home> {
       'Investing',
   ];
 
+  final Function _androidInitialize;
+  String _message; 
+
+  @override
+  _HomeState(this._androidInitialize);
+
+  @override
+  void initState(){
+
+    _androidInitialize().then((String message){
+      setState(() {
+        _message = message;        
+      });   
+   });
+
+   super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
