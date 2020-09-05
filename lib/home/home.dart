@@ -7,13 +7,13 @@ import 'slider.dart';
 
 class Home extends StatefulWidget {
 
-  final Function androidInitialize;
   final Function androidLogEvent;
+  final Function registerTap;
 
-  Home(this.androidInitialize, this.androidLogEvent);
+  Home(this.androidLogEvent, this.registerTap);
 
   @override
-  _HomeState createState() => _HomeState(androidInitialize, androidLogEvent);
+  _HomeState createState() => _HomeState(androidLogEvent, registerTap);
 }
 
 class _HomeState extends State<Home> {
@@ -51,25 +51,12 @@ class _HomeState extends State<Home> {
       'Investing',
   ];
 
-  final Function _androidInitialize;
   final Function _androidLogEvent;
+  final Function _registerTap;
   String _message; 
 
   @override
-  _HomeState(this._androidInitialize, this._androidLogEvent);
-
-  @override
-  void initState(){
-
-    _androidInitialize().then((String message){
-      setState(() {
-        _message = message;        
-      });   
-   });
-
-   super.initState();
-
-  }
+  _HomeState(this._androidLogEvent, this._registerTap);
 
   @override
   Widget build(BuildContext context) {
@@ -141,6 +128,7 @@ class _HomeState extends State<Home> {
                                     clipBehavior: Clip.antiAlias,
                                     child: InkWell(
                                       onTap: () {
+                                        _registerTap(i, _androidLogEvent);
                                         Navigator.pushNamed(
                                             context, '/products',
                                             arguments: i);

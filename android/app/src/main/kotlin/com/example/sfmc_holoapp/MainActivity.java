@@ -39,7 +39,7 @@ public class MainActivity extends FlutterActivity {
             @Override
             public void handleCampaign(@NonNull Campaign campaign) {
                 // Validate the campaign data since it's dynamic JSON. Avoid processing if fails.
-                String featuredProductName = campaign.getData().optString("featuredProductName");
+                String featuredProductName = campaign.getData().optString("productSelected");
                 if (featuredProductName == null || featuredProductName.isEmpty()) {
                     return;
                 }
@@ -105,7 +105,7 @@ public class MainActivity extends FlutterActivity {
 
                     myScreen = myApp.refreshScreen(event, myScreen);
 
-                    myScreen.setCampaignHandler(handler, "featuredProduct");
+                    //myScreen.setCampaignHandler(handler, "selectedProduct");
 
                     String message = null;
 

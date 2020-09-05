@@ -31,6 +31,20 @@ class _MyAppState extends State<MyApp> {
 
  static Locale locale = Locale('en');
  static const platform = const MethodChannel('demo.sfmc_holoapp/info'); 
+ String _message;
+
+  @override
+  void initState(){
+
+    _androidInitialize().then((String message){
+      setState(() {
+        _message = message;        
+      });   
+   });
+
+   super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +65,7 @@ class _MyAppState extends State<MyApp> {
             fontFamily: locale.languageCode == 'ar' ? 'Dubai' : 'Lato'),
         initialRoute: '/',
         routes: <String, WidgetBuilder>{
-          '/': (BuildContext context) => Home(_androidInitialize, _androidLogEvent),
+          '/': (BuildContext context) => Home(_androidLogEvent, _registerTap),
           '/auth': (BuildContext context) => Auth(),
           '/shop': (BuildContext context) => Shop(),
           '/categorise': (BuildContext context) => Categorise(),
@@ -62,6 +76,14 @@ class _MyAppState extends State<MyApp> {
         },
       ),
     );
+  }
+
+  void _registerTap(String productName, Function androidLogEvent) {
+    androidLogEvent(productName).then((String message){
+      setState(() {
+        _message = message;        
+      });   
+   });
   }
 
   Future<String> _androidInitialize() async {
@@ -82,9 +104,9 @@ class _MyAppState extends State<MyApp> {
     return value;
   }
 
-  Future<String> _androidLogEvent() async {
+  Future<String> _androidLogEvent(String tapDescription) async {
     var sendMap = <String, dynamic> {
-      'event': 'Logged App Event',
+      'event': 'Selected:' + tapDescription,
     };
 
     String value;
