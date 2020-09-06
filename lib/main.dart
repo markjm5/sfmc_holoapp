@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<String> _androidLogEvent(String tapDescription) async {
     var sendMap = <String, dynamic> {
-      'event': 'Selected:' + tapDescription,
+      'event': tapDescription,
     };
 
     String value;

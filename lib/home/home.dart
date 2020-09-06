@@ -16,6 +16,15 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState(androidLogEvent, registerTap);
 }
 
+
+class Product 
+{
+  String productName;
+  String productImage;
+  
+  Product(this.productName, this.productImage);
+}
+
 class _HomeState extends State<Home> {
  /* 
   final List<String> imgList = [
@@ -28,13 +37,12 @@ class _HomeState extends State<Home> {
   ];
 */
 
-  final List<String> imgList = [
-      'https://cumulus-fs.s3.amazonaws.com/images/credit-card-travel-no-logo.png',
-      'https://cumulus-fs.s3.amazonaws.com/images/credit-card-cloud-plus-no-logo.png',
-      'https://cumulus-fs.s3.amazonaws.com/images/credit-card-freedom-no-logo.png',
-      'https://cumulus-fs.s3.amazonaws.com/images/credit-card-student-no-logo.png',      
+  final List<Product> imgList = [
+      Product('Cloud Travel','https://cumulus-fs.s3.amazonaws.com/images/credit-card-travel-no-logo.png'),
+      Product('Cloud Plus','https://cumulus-fs.s3.amazonaws.com/images/credit-card-cloud-plus-no-logo.png'),
+      Product('Cloud Freedom','https://cumulus-fs.s3.amazonaws.com/images/credit-card-freedom-no-logo.png'),
+      Product('Cloud Student','https://cumulus-fs.s3.amazonaws.com/images/credit-card-student-no-logo.png'),      
   ];
-
 
   final List<String> imgList2 = [
       'https://cumulus-fs.s3.amazonaws.com/images/banking-checking.png',
@@ -57,6 +65,15 @@ class _HomeState extends State<Home> {
 
   @override
   _HomeState(this._androidLogEvent, this._registerTap);
+
+  @override
+  void initState(){
+
+    _registerTap('App: Homepage Visit', _androidLogEvent);
+
+   super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,10 +145,10 @@ class _HomeState extends State<Home> {
                                     clipBehavior: Clip.antiAlias,
                                     child: InkWell(
                                       onTap: () {
-                                        _registerTap(i, _androidLogEvent);
+                                        _registerTap('App: ' + i.productName, _androidLogEvent);
                                         Navigator.pushNamed(
                                             context, '/products',
-                                            arguments: i);
+                                            arguments: i.productImage);
                                       },
                                       child: Column(
                                         crossAxisAlignment:
@@ -140,10 +157,10 @@ class _HomeState extends State<Home> {
                                           SizedBox(
                                             height: 110,
                                             child: Hero(
-                                              tag: '$i',
+                                              tag: i.productImage,
                                               child: CachedNetworkImage(
                                                 fit: BoxFit.fitWidth,
-                                                imageUrl: i,
+                                                imageUrl: i.productImage,
                                                 placeholder: (context, url) =>
                                                     Center(
                                                         child:
@@ -156,7 +173,7 @@ class _HomeState extends State<Home> {
                                           ),
                                           ListTile(
                                             title: Text(
-                                              'Cloud Travel Card',
+                                              i.productName,
                                               style: TextStyle(fontSize: 14),
                                             ),
                                             subtitle: Text('\Find out more!',
