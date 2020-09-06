@@ -19,7 +19,6 @@ public class MyFlutterApplication extends FlutterApplication {
     public Evergage evergage;
     public Campaign returnCampaign;
 
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -29,6 +28,7 @@ public class MyFlutterApplication extends FlutterApplication {
     }
 
     public Evergage startEvg(String account, String ds) {
+
         evergage = Evergage.getInstance();
         evergage.start(new ClientConfiguration.Builder().account(account).dataset(ds).usePushNotifications(true).build());
 

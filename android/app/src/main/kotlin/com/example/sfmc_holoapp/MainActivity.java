@@ -1,20 +1,16 @@
 package com.example.sfmc_holoapp;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugins.GeneratedPluginRegistrant;
 import io.flutter.plugin.common.MethodCall;
-
+import io.flutter.plugins.GeneratedPluginRegistrant;
 import com.evergage.android.Evergage;
 import com.evergage.android.CampaignHandler;
 import com.evergage.android.Campaign;
-import com.evergage.android.EvergageActivity;
-import com.evergage.android.ClientConfiguration;
 import com.evergage.android.Screen;
 
 
@@ -105,7 +101,7 @@ public class MainActivity extends FlutterActivity {
 
                     myScreen = myApp.refreshScreen(event, myScreen);
 
-                    //myScreen.setCampaignHandler(handler, "selectedProduct");
+                    myScreen.setCampaignHandler(handler, "selectedProduct");
 
                     String message = null;
 
