@@ -98,19 +98,25 @@ public class MainActivity extends FlutterActivity {
                 if(methodCall.method.equals("androidLogEvent")) {
 
                     String event = (String) arguments.get("event");
-
-                    myScreen = myApp.refreshScreen(event, myScreen);
-
-                    myScreen.setCampaignHandler(handler, "selectedProduct");
-
+                    String description = (String) arguments.get("description");
                     String message = null;
 
-                    if(activeCampaign != null) {
-                        message = "Campaign: " + activeCampaign.getCampaignName() + " For target: " + activeCampaign.getTarget() + " With data: " + activeCampaign.getData();
+                    if(event.equals("setUserId")) {
+                        myEvg.setUserId(description);
+                        message = "Successfully set User Id";
                     }else {
-                        message = "Generic Campaign";
-                    }
 
+                        myScreen = myApp.refreshScreen(event, description, myScreen);
+
+                        myScreen.setCampaignHandler(handler, "selectedProduct");
+
+
+                        if (activeCampaign != null) {
+                            message = "Campaign: " + activeCampaign.getCampaignName() + " For target: " + activeCampaign.getTarget() + " With data: " + activeCampaign.getData();
+                        } else {
+                            message = "No Campaign Returned";
+                        }
+                    }
                     result.success(message);
                 }
             }

@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
   @override
   void initState(){
 
-    _registerTap('App: Homepage Visit', _androidLogEvent);
+    _registerTap('trackAction','App: Homepage Visit', _androidLogEvent);
 
    super.initState();
 
@@ -145,7 +145,7 @@ class _HomeState extends State<Home> {
                                     clipBehavior: Clip.antiAlias,
                                     child: InkWell(
                                       onTap: () {
-                                        _registerTap('App: ' + i.productName, _androidLogEvent);
+                                        _registerTap('trackAction','App: ' + i.productName, _androidLogEvent);
                                         Navigator.pushNamed(
                                             context, '/products',
                                             arguments: i.productImage);

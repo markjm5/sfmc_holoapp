@@ -5,10 +5,16 @@ import 'signin.dart';
 import 'signup.dart';
 
 class Auth extends StatelessWidget {
+  final Function androidLogEvent;
+  final Function registerTap;
+
   final List<Widget> tabs = [
     SignIn(),
-    SignUp()
+    SignUp(),
   ];
+
+  Auth(this.androidLogEvent, this.registerTap);
+
   @override
   Widget build(BuildContext context) {
     final AuthBlock authBlock = Provider.of<AuthBlock>(context);

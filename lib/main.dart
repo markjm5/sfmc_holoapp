@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
         initialRoute: '/',
         routes: <String, WidgetBuilder>{
           '/': (BuildContext context) => Home(_androidLogEvent, _registerTap),
-          '/auth': (BuildContext context) => Auth(),
+          '/auth': (BuildContext context) => Auth(_androidLogEvent, _registerTap),
           '/shop': (BuildContext context) => Shop(),
           '/categorise': (BuildContext context) => Categorise(),
           '/wishlist': (BuildContext context) => WishList(),
@@ -78,8 +78,8 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  void _registerTap(String productName, Function androidLogEvent) {
-    androidLogEvent(productName).then((String message){
+  void _registerTap(String tapEvent, String tapDescription, Function androidLogEvent) {
+    androidLogEvent(tapEvent, tapDescription).then((String message){
       setState(() {
         _message = message;        
       });   
@@ -104,9 +104,10 @@ class _MyAppState extends State<MyApp> {
     return value;
   }
 
-  Future<String> _androidLogEvent(String tapDescription) async {
+  Future<String> _androidLogEvent(String tapEvent, String tapDescription) async {
     var sendMap = <String, dynamic> {
-      'event': tapDescription,
+      'event': tapEvent,
+      'description': tapDescription,
     };
 
     String value;

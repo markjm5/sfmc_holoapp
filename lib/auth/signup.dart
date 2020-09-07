@@ -4,12 +4,14 @@ import 'package:sfmc_holoapp/blocks/auth_block.dart';
 import 'package:provider/provider.dart';
 
 class SignUp extends StatefulWidget {
+
   @override
   _SignUpState createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
+
   final User user = User();
   String confirmPassword;
   @override

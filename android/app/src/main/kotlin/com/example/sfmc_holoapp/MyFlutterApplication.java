@@ -14,6 +14,9 @@ import com.evergage.android.ClientConfiguration;
 import com.evergage.android.Evergage;
 import com.evergage.android.EvergageActivity;
 import com.evergage.android.Screen;
+import com.evergage.android.promote.Category;
+import com.evergage.android.promote.Product;
+import com.evergage.android.promote.Tag;
 
 public class MyFlutterApplication extends FlutterApplication {
     public Evergage evergage;
@@ -37,7 +40,7 @@ public class MyFlutterApplication extends FlutterApplication {
         return evergage;
     }
 
-    public Screen refreshScreen(String event, Screen screen) {
+    public Screen refreshScreen(String event, String description, Screen screen) {
         // Evergage track screen view
         //final Screen screen = myEvg.getScreenForActivity(fa);
 
@@ -51,8 +54,20 @@ public class MyFlutterApplication extends FlutterApplication {
             // Or if screen is viewing a tag, like some specific brand:
             //screen.viewTag(new Tag("SomeBrand", Tag.Type.Brand));
 
-            // Or maybe screen isn't related to your catalog:
-            screen.trackAction(event);
+            switch(event){
+                case "trackAction":
+                    screen.trackAction(description);
+                    break;
+                case "viewItem":
+                    screen.viewItem(new Product(description));
+                    break;
+                case "viewCategory":
+                    screen.viewCategory(new Category(description));
+                    break;
+                case "viewTag":
+                    screen.viewTag(new Tag(description, Tag.Type.Brand));
+                    break;
+            }
 
         }
         return screen;
