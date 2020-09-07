@@ -4,7 +4,11 @@ import 'package:sfmc_holoapp/blocks/auth_block.dart';
 import 'package:provider/provider.dart';
 
 class SignUp extends StatefulWidget {
+  final Function androidLogEvent;
+  final Function registerTap;
 
+  SignUp(this.androidLogEvent, this.registerTap);
+  
   @override
   _SignUpState createState() => _SignUpState();
 }
@@ -123,8 +127,11 @@ class _SignUpState extends State<SignUp> {
                             if (_formKey.currentState.validate() && !auth.loading) {
                               _formKey.currentState.save();
                               // If the form is valid, display a snackbar. In the real world,
-                              // you'd often call a server or save the information in a database.
+                              // you'd often call a server or save the information in a database.                              
                               auth.register(user);
+
+                              //Call Interation Studio here to set user credentials
+                              // ...
                             }
                           },
                         );

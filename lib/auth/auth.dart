@@ -10,7 +10,7 @@ class Auth extends StatelessWidget {
 
   final List<Widget> tabs = [
     SignIn(),
-    SignUp(),
+    SignUp(androidLogEvent,registerTap),
   ];
 
   Auth(this.androidLogEvent, this.registerTap);
