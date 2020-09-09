@@ -10,14 +10,20 @@ class SignUp extends StatefulWidget {
   SignUp(this.androidLogEvent, this.registerTap);
   
   @override
-  _SignUpState createState() => _SignUpState();
+  _SignUpState createState() => _SignUpState(androidLogEvent, registerTap);
 }
 
 class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
+  final Function _androidLogEvent;
+  final Function _registerTap;
 
   final User user = User();
   String confirmPassword;
+
+  @override
+  _SignUpState(this._androidLogEvent, this._registerTap);
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -39,6 +45,8 @@ class _SignUpState extends State<SignUp> {
                         return null;
                       },
                       onSaved: (value) {
+                        _registerTap('setUserId',value, _androidLogEvent);
+
                         setState(() {
                           user.username = value;
                         });
@@ -59,6 +67,7 @@ class _SignUpState extends State<SignUp> {
                         return null;
                       },
                       onSaved: (value) {
+
                         setState(() {
                           user.email = value;
                         });
@@ -79,6 +88,7 @@ class _SignUpState extends State<SignUp> {
                           return null;
                         },
                         onSaved: (value) {
+
                           setState(() {
                             user.password = value;
                           });
