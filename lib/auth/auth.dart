@@ -4,16 +4,30 @@ import 'package:sfmc_holoapp/blocks/auth_block.dart';
 import 'signin.dart';
 import 'signup.dart';
 
-class Auth extends StatelessWidget {
+class Auth extends StatefulWidget {
   final Function androidLogEvent;
   final Function registerTap;
 
-  final List<Widget> tabs = [
-    SignIn(),
-    SignUp(androidLogEvent,registerTap),
-  ];
-
   Auth(this.androidLogEvent, this.registerTap);
+
+  @override
+  _Auth createState() => _Auth(androidLogEvent, registerTap);
+
+}
+
+class _Auth extends State<Auth> {
+  final Function _androidLogEvent;
+  final Function _registerTap;
+
+  final List<Widget> tabs = [];
+
+  @override
+  _Auth(this._androidLogEvent, this._registerTap){
+
+    tabs.add(SignIn(_androidLogEvent, _registerTap));
+    tabs.add(SignUp(_androidLogEvent, _registerTap));
+
+  }
 
   @override
   Widget build(BuildContext context) {

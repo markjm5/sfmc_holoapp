@@ -4,6 +4,11 @@ import 'package:sfmc_holoapp/models/user.dart';
 import 'package:provider/provider.dart';
 
 class SignIn extends StatefulWidget {
+  final Function androidLogEvent;
+  final Function registerTap;
+
+  SignIn(this.androidLogEvent, this.registerTap);
+
   @override
   _SignInState createState() => _SignInState();
 }
