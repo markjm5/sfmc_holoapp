@@ -197,7 +197,7 @@ class _HomeState extends State<Home> {
                         child: Padding(
                           padding:
                               EdgeInsets.only(top: 6.0, left: 8.0, right: 8.0),
-                          child: new Image.network('https://cumulus-fs.s3.amazonaws.com/images/ads/banner-webinar-integrating-healthcare-into-retirement-plan.jpg'),
+                          child: new Image.network('https://cumulus-fs.s3.amazonaws.com/images/ads/banner-credit-card-finder.jpg'),
                         ),
                       ),
                       Row(

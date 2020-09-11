@@ -10,12 +10,19 @@ class SignIn extends StatefulWidget {
   SignIn(this.androidLogEvent, this.registerTap);
 
   @override
-  _SignInState createState() => _SignInState();
+  _SignInState createState() => _SignInState(androidLogEvent, registerTap);
 }
 
 class _SignInState extends State<SignIn> {
   final _formKey = GlobalKey<FormState>();
   final UserCredential userCredential = UserCredential();
+  final Function _androidLogEvent;
+  final Function _registerTap;  
+
+  @override
+  _SignInState(this._androidLogEvent, this._registerTap);
+
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -28,6 +35,9 @@ class _SignInState extends State<SignIn> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Padding(
+                    padding:EdgeInsets.only(top: 3.0, left: 8.0, right: 8.0, bottom: 3.0),child: new Image.network('https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/intelligent-marketing-and-customer-service-for-banks/connect-with-customers-in-a-whole-new-way/images/7543698e46ecb7b4d3687cefd9146977_cj-670-th-7-z-00440-s-9-m-0-vdl-74-i-5.png'),
+                  ),
+                  Padding(
                     padding: const EdgeInsets.only(bottom: 12.0),
                     child: TextFormField(
                       keyboardType: TextInputType.emailAddress,
@@ -38,6 +48,8 @@ class _SignInState extends State<SignIn> {
                         return null;
                       },
                       onSaved: (value) {
+                        _registerTap('setUserId',value, _androidLogEvent);
+
                         setState(() {
                           userCredential.usernameOrEmail = value;
                         });
@@ -56,6 +68,7 @@ class _SignInState extends State<SignIn> {
                       return null;
                     },
                     onSaved: (value) {
+
                       setState(() {
                         userCredential.password = value;
                       });

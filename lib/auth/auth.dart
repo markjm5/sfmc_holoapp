@@ -32,6 +32,7 @@ class _Auth extends State<Auth> {
   @override
   Widget build(BuildContext context) {
     final AuthBlock authBlock = Provider.of<AuthBlock>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(authBlock.currentIndex == 0 ? 'Sign In' : 'Create Account'),
