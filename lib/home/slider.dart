@@ -17,12 +17,14 @@ class _HomeSliderState extends State<HomeSlider> {
     'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
     'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
   ];
-  */
-
+*/ 
   final List<String> imgList = [
-    'https://cumulus-fs.s3.amazonaws.com/images/banners/hero-personal-credit-cards-default-BG-image.jpg',
-    'https://cumulus-fs.s3.amazonaws.com/images/banners/hero-corporate-home-default-BG-image.jpg',
+    'https://image.s4.sfmc-content.com/lib/fe9215747263077a75/m/1/4c96a2e0-13d2-4e87-a09e-e695916cb794.jpg',
+    'https://image.s4.sfmc-content.com/lib/fe9215747263077a75/m/1/959b552a-f4d4-4cf7-a3e0-5fc8e0cb6022.jpg',
     ];
+ 
+
+
 
   @override
   Widget build(BuildContext context) {
