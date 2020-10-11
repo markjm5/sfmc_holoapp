@@ -35,6 +35,7 @@ class _HomeState extends State<Home> {
     'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
     'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
   ];
+*/
 
   final List<Product> imgList = [
       Product('Cloud Travel','https://cumulus-fs.s3.amazonaws.com/images/credit-card-travel-no-logo.png'),
@@ -42,15 +43,6 @@ class _HomeState extends State<Home> {
       Product('Cloud Freedom','https://cumulus-fs.s3.amazonaws.com/images/credit-card-freedom-no-logo.png'),
       Product('Cloud Student','https://cumulus-fs.s3.amazonaws.com/images/credit-card-student-no-logo.png'),      
   ];
-*/
-
-  final List<Product> imgList = [
-      Product('How Much Can I Borrow?','https://image.s4.sfmc-content.com/lib/fe9215747263077a75/m/1/a3ec8729-de78-48cc-998a-70f785c70e56.png'),
-      Product('New Homebuyer Checklist','https://image.s4.sfmc-content.com/lib/fe9215747263077a75/m/1/6492ac90-ec53-4a48-a010-8e85bad8a410.png'),
-      Product('The Dos and Donts','https://image.s4.sfmc-content.com/lib/fe9215747263077a75/m/1/4dfb3563-fe96-4ca4-a84c-da4189627969.png'),
-  ];
-
-
 
   final List<String> imgList2 = [
       'https://cumulus-fs.s3.amazonaws.com/images/banking-checking.png',
@@ -205,7 +197,7 @@ class _HomeState extends State<Home> {
                         child: Padding(
                           padding:
                               EdgeInsets.only(top: 6.0, left: 8.0, right: 8.0),
-                          child: new Image.network('https://image.s4.sfmc-content.com/lib/fe9215747263077a75/m/1/959b552a-f4d4-4cf7-a3e0-5fc8e0cb6022.jpg'),
+                          child: new Image.network('https://cumulus-fs.s3.amazonaws.com/images/ads/banner-credit-card-finder.jpg'),
                         ),
                       ),
                       Row(
