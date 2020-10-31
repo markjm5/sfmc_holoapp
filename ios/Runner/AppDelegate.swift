@@ -9,7 +9,9 @@ import Evergage
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    
+
+    let evergage = Evergage.sharedInstance()
+        
     let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
     
     let CHANNEL = FlutterMethodChannel(name: "demo.sfmc_holoapp/info", binaryMessenger: controller.binaryMessenger)
@@ -29,23 +31,19 @@ import Evergage
                 result("Hi from Swift")
             }else{
                 result("Hi from Swift: " + account! + ds!)
+                // Recommended to set the authenticated user's ID as soon as known:
+                evergage.userId = "iOSUser"
+                // Start Evergage with your Evergage Configuration:
+                evergage.start { (clientConfigurationBuilder) in
+                    clientConfigurationBuilder.account = "interactionstudio"
+                    clientConfigurationBuilder.dataset = "mmukherjee_sandbox"
+                    clientConfigurationBuilder.usePushNotifications = true
+                    clientConfigurationBuilder.useDesignMode = true
+                }
             }
         }
     }
-    
-    let evergage = Evergage.sharedInstance()
-    
-    // Recommended to set the authenticated user's ID as soon as known:
-    evergage.userId = "theAuthenticatedUserId"
-
-    // Start Evergage with your Evergage Configuration:
-    evergage.start { (clientConfigurationBuilder) in
-        clientConfigurationBuilder.account = "interactionstudio"
-        clientConfigurationBuilder.dataset = "mmukherjee_sandbox"
-        clientConfigurationBuilder.usePushNotifications = true
-        clientConfigurationBuilder.useDesignMode = true
-    }
-    
+        
     GeneratedPluginRegistrant.register(with: self)
     if FirebaseApp.app() == nil {
         FirebaseApp.configure()
