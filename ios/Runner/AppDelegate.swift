@@ -10,6 +10,29 @@ import Evergage
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     
+    let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
+    
+    let CHANNEL = FlutterMethodChannel(name: "demo.sfmc_holoapp/info", binaryMessenger: controller.binaryMessenger)
+    
+    CHANNEL.setMethodCallHandler {[unowned self] (methodCall, result) in
+        if methodCall.method == "androidInitialize"
+        {
+            var account: String?
+            var ds: String?
+            
+            if let args = methodCall.arguments as? Dictionary<String, AnyObject>
+            {
+                account = args["account"] as? String
+                ds = args["ds"] as? String
+            }
+            if account!.isEmpty || ds!.isEmpty {
+                result("Hi from Swift")
+            }else{
+                result("Hi from Swift: " + account! + ds!)
+            }
+        }
+    }
+    
     let evergage = Evergage.sharedInstance()
     
     // Recommended to set the authenticated user's ID as soon as known:
